@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 15:00:50 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:31:05 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:22:57 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			ft_tabrot(t_tab *tab, int rot)
 		ft_memcpy(tab->data, tmp, len);
 	}
 }
+
 /*
 void			*ft_tabchr(t_tab *tab, void *chr)
 {

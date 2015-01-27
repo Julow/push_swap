@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/27 13:44:25 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:41:38 by jaguillo         ###   ########.fr       */
+/*   Created: 2015/01/27 18:15:00 by jaguillo          #+#    #+#             */
+/*   Updated: 2015/01/27 18:45:27 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int				main(int argc, char **argv)
-{
-	t_env			*env;
+const void		*sorts = {
+	NULL
+};
 
-	env = env_new();
-	if (!parse_argv(env, argv + 1))
-		return (env_kill(env), ft_putstr_fd(ERROR, 2), 1);
-	if (FLAG(FLAG_V))
-		print_a("Initial a: ", env);
-	sort(&env);
-	if (env == NULL)
-		ft_putstr_fd(ERROR, 2);
-	else
-		print_steps(env);
-	env_kill(env);
-	(void)argc;
-	return (env_kill(env), 0);
+static t_env	*get_best_res(t_env *e1, t_env *e2)
+{
+	if (e1 == NULL || e2 == NULL)
+		return ((e1 == NULL) ? e2 : e1);
+	if (e1->steps.length <= e2->steps.length)
+		return (env_kill(e2), e1);
+	return (env_kill(e1), e2);
+}
+
+void			sort(t_env **env)
+{
+	int				i;
+
+	*env = NULL;
+	i = -1;
+	while (sorts[++i] != NULL)
+		*env = get_best_res(*env, sorts[i](env_dup(env)));
 }
