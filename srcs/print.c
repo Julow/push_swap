@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:03:40 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:43:43 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:57:30 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ void			print_steps(t_env *env)
 
 	i = -1;
 	while (++i < env->steps.length)
+	{
+		if (i > 0)
+			ft_putchar(' ');
+		ft_putstr(env->steps.data[i]);
+	}
+	ft_putchar('\n');
 }

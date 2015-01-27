@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:20:20 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:36:16 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:58:44 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ t_env			*env_dup(t_env *env)
 	dup->flags = env->flags;
 	ft_tabaddn(&(dup->a), env->a.data, env->a.length);
 	ft_arrayapp(&(dup->steps), &(env->steps));
+	return (dup);
 }

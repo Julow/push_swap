@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:45:30 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:58:19 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,17 @@ typedef struct	s_env
 	int				flags;
 }				t_env;
 
+typedef struct	s_op
+{
+	char			*name;
+	void			(*op)(t_env *env);
+}				t_op;
+
 /*
 ** Operators
 */
+void			call_op(t_env *env, const char *name);
+
 void			op_sa(t_env *env);
 void			op_sb(t_env *env);
 void			op_ss(t_env *env);
@@ -68,7 +76,7 @@ void			sort(t_env **env);
 /*
 ** print.c
 */
-void			print_a(t_env *env);
+void			print_a(const char *prefix, t_env *env);
 void			print_ab(t_env *env);
 void			print_steps(t_env *env);
 

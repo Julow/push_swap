@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:44:25 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:41:38 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:59:45 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ int				main(int argc, char **argv)
 		print_a("Initial a: ", env);
 	sort(&env);
 	if (env == NULL)
-		ft_putstr_fd(ERROR, 2);
-	else
-		print_steps(env);
-	env_kill(env);
+		return (env_kill(env), ft_putstr_fd(ERROR, 2), 1);
+	if (FLAG(FLAG_V))
+	{
+		print_a("Final a: ", env);
+		ft_putstr("Steps: ");
+	}
+	print_steps(env);
 	(void)argc;
 	return (env_kill(env), 0);
 }
