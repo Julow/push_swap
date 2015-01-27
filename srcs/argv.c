@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 16:21:11 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:30:51 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 21:46:17 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_bool	push_arg(t_env *env, char *arg)
 	tmp = (arg[0] == '-') ? 1 : 0;
 	while (arg[tmp] >= '0' && arg[tmp] <= '9')
 		tmp++;
-	if (arg[tmp] != '\0' || tmp == 0
+	if (arg[tmp] != '\0' || tmp == ((arg[0] == '-') ? 1 : 0)
 		|| (*arg == '-' && tmp >= 11 && ft_strcmp(arg, "-2147483648") > 0)
 		|| (*arg != '-' && tmp >= 10 && ft_strcmp(arg, "2147483647") > 0))
 		return (false);
@@ -35,7 +35,9 @@ static t_bool	parse_flags(t_env *env, char *flags)
 	while (*(++flags) != '\0')
 	{
 		if (*flags == 'v')
-			env->flags |= FLAG_V;
+			env->flags |= FLAG_V | FLAG_A;
+		else if (*flags == 'a')
+			env->flags |= FLAG_A;
 		else if (*flags == 'c')
 			env->flags |= FLAG_C;
 		else

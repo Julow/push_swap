@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 19:12:31 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 21:41:23 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # define FLAG(f)		((env->flags & (f)) == (f))
 
 # define FLAG_V			(1)
-# define FLAG_C			(1 << 1)
+# define FLAG_A			(1 << 1)
+# define FLAG_C			(1 << 2)
 
 typedef struct	s_env
 {
@@ -82,6 +83,7 @@ t_bool			parse_argv(t_env *env, char **argv);
 */
 void			print_a(const char *prefix, t_env *env);
 void			print_steps(t_env *env);
+void			print_verbose(t_env *env, t_env *sorted);
 
 /*
 ** tab_utils.c
