@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 14:49:12 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 14:55:38 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:31:01 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 /*
 ** sa : swap a - intervertit les 2 premiers éléments au sommet de la pile a.

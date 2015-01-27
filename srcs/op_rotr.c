@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 14:55:51 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 15:43:17 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:30:58 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 /*
 ** rra : reverse rotate a

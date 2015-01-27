@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:03:40 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:06:22 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:30:48 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 void			print_stacks(t_env *env)
 {

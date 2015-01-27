@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:44:25 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:12:04 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:31:10 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 #include <stdlib.h>
 
 static void		env_init(t_env *env)

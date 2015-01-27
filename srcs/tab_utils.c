@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 15:00:50 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:09:14 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:31:05 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 void			ft_tabcpy(t_tab *tab, void *dst, int index)
 {

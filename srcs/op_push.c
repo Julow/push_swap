@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 14:48:54 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:11:09 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:30:53 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 /*
 ** pa : push a - prend le premier élément au sommet de b et le met sur a.

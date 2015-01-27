@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 14:49:16 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 15:43:06 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:30:55 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 /*
 ** ra : rotate a - décale d’une position tous les élements de la pile a.

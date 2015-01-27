@@ -6,11 +6,11 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 16:21:11 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:18:24 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:30:51 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 static t_bool	push_arg(t_env *env, char *arg)
 {
