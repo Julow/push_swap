@@ -6,13 +6,14 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:15:00 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 19:00:51 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 19:09:12 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-const void		*sorts[] = {
+const t_sort	sorts[] = {
+	&sort_simple,
 	NULL
 };
 

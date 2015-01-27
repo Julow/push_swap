@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:58:19 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 19:12:31 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct	s_op
 	void			(*op)(t_env *env);
 }				t_op;
 
+typedef t_env	*(*t_sort)(t_env*);
+
 /*
 ** Operators
 */
@@ -57,6 +59,13 @@ void			op_rrb(t_env *env);
 void			op_rrr(t_env *env);
 
 /*
+** Sorting
+*/
+void			sort(t_env **env);
+
+t_env			*sort_simple(t_env *env);
+
+/*
 ** env.c
 */
 t_env			*env_new();
@@ -69,15 +78,9 @@ t_env			*env_dup(t_env *env);
 t_bool			parse_argv(t_env *env, char **argv);
 
 /*
-** sort.c
-*/
-void			sort(t_env **env);
-
-/*
 ** print.c
 */
 void			print_a(const char *prefix, t_env *env);
-void			print_ab(t_env *env);
 void			print_steps(t_env *env);
 
 /*
