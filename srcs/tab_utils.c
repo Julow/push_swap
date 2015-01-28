@@ -6,11 +6,16 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 15:00:50 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:22:57 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 00:05:45 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int		ft_abs(int a)
+{
+	return ((a < 0) ? -a : a);
+}
 
 void			ft_tabcpy(t_tab *tab, void *dst, int index)
 {
@@ -27,38 +32,21 @@ void			ft_tablast(t_tab *tab, void *dst)
 
 void			ft_tabrot(t_tab *tab, int rot)
 {
-	const int		len = ABS(rot) * tab->size;
+	const int		len = ft_abs(rot %= tab->length) * tab->size;
 	t_byte			tmp[len];
 
-	rot %= tab->length;
+	if (rot == 0 || tab->length == 0)
+		return ;
 	if (rot < 0)
 	{
 		ft_memcpy(tmp, tab->data, len);
-		ft_memmove(tab->data, tab->data + len, len);
+		ft_memmove(tab->data, tab->data + len, tab->bytes - len);
 		ft_memcpy(tab->data + tab->bytes - len, tmp, len);
 	}
 	else
 	{
 		ft_memcpy(tmp, tab->data + tab->bytes - len, len);
-		ft_memmove(tab->data + len, tab->data, len);
+		ft_memmove(tab->data + len, tab->data, tab->bytes - len);
 		ft_memcpy(tab->data, tmp, len);
 	}
 }
-
-/*
-void			*ft_tabchr(t_tab *tab, void *chr)
-{
-	void			*data;
-	void			*end;
-
-	data = tab->data;
-	end = data + tab->bytes;
-	while (data < end)
-	{
-		if (ft_memcmp(data, chr, tab->size) == 0)
-			return (data);
-		data += tab->size;
-	}
-	return (NULL);
-}
-*/
