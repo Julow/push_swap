@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 16:21:11 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 10:54:16 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:25:11 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static t_bool	push_arg(t_env *env, char *arg)
 	while (arg[tmp] >= '0' && arg[tmp] <= '9')
 		tmp++;
 	if (arg[tmp] != '\0' || tmp == ((arg[0] == '-') ? 1 : 0)
-		|| (*arg == '-' && tmp >= 11 && ft_strcmp(arg, "-2147483648") > 0)
-		|| (*arg != '-' && tmp >= 10 && ft_strcmp(arg, "2147483647") > 0))
+		|| (*arg == '-' && tmp == 11 && ft_strcmp(arg, "-2147483648") > 0)
+		|| (*arg != '-' && tmp == 10 && ft_strcmp(arg, "2147483647") > 0)
+		|| tmp > 10)
 		return (false);
 	tmp = ft_atoi(arg);
 	if (ft_tabchr(&(env->a), &tmp) != -1)
@@ -48,16 +49,15 @@ static t_bool	parse_flags(t_env *env, char *flags)
 	return (true);
 }
 
-t_bool			parse_argv(t_env *env, char **argv)
+t_bool			parse_argv(t_env *env, int argc, char **argv)
 {
 	if (*argv != NULL && **argv == '-' && !ft_isdigit((*argv)[1])
-		&& !parse_flags(env, *(argv++)))
+		&& argc-- && !parse_flags(env, *(argv++)))
 		return (false);
-	while (*argv != NULL)
+	while (--argc >= 0)
 	{
-		if (!push_arg(env, *argv))
+		if (!push_arg(env, argv[argc]))
 			return (false);
-		argv++;
 	}
 	return (true);
 }

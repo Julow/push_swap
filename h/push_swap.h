@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 14:52:16 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:14:28 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_env			*env_dup(t_env *env);
 /*
 ** argv.c
 */
-t_bool			parse_argv(t_env *env, char **argv);
+t_bool			parse_argv(t_env *env, int argc, char **argv);
 
 /*
 ** print.c

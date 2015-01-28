@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:03:40 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 10:55:55 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 15:58:55 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void			print_steps(t_env *env)
 	if (FLAG(FLAG_A))
 	{
 		print_a("Final a: ", env);
+		if (FLAG(FLAG_I) && !is_sort(&(env->a)))
+			ft_putstr("(Not sorted)\n");
 		ft_putstr("Final steps: ");
 	}
 	i = -1;

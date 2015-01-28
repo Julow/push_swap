@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:44:25 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 15:20:37 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:14:41 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				main(int argc, char **argv)
 	t_env			*tmp;
 
 	env = env_new();
-	if (!parse_argv(env, argv + 1))
+	if (!parse_argv(env, argc - 1, argv + 1))
 		return (env_kill(env), ft_putstr_fd(ERROR, 2), 1);
 	if (FLAG(FLAG_A))
 		print_a("Initial a: ", env);
@@ -32,6 +32,5 @@ int				main(int argc, char **argv)
 	if (FLAG(FLAG_V))
 		print_verbose(tmp, env);
 	print_steps(env);
-	(void)argc;
 	return (env_kill(env), 0);
 }
