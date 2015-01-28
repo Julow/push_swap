@@ -6,13 +6,13 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:50:10 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 10:43:17 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:32:55 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-const t_op		operators[] = {
+const t_op		g_operators[] = {
 	{"sa", &op_sa},
 	{"sb", &op_sb},
 	{"ss", &op_ss},
@@ -32,12 +32,12 @@ t_bool			call_op(t_env *env, const char *name)
 	int				i;
 
 	i = -1;
-	while (operators[++i].op != NULL)
+	while (g_operators[++i].op != NULL)
 	{
-		if (ft_strequ(name, operators[i].name))
+		if (ft_strequ(name, g_operators[i].name))
 		{
-			ft_arrayadd(&(env->steps), operators[i].name);
-			operators[i].op(env);
+			ft_arrayadd(&(env->steps), g_operators[i].name);
+			g_operators[i].op(env);
 			return (true);
 		}
 	}

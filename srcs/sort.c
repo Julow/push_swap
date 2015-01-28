@@ -6,16 +6,17 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:15:00 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 14:48:36 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:35:24 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-const t_sort	sorts[] = {
+const t_sort	g_sorts[] = {
 	&sort_rot,
 	&sort_rrot,
 	&sort_simple,
+	&sort_simpler,
 	NULL
 };
 
@@ -35,8 +36,8 @@ void			sort(t_env **env)
 
 	best = NULL;
 	i = -1;
-	while (sorts[++i] != NULL)
-		best = get_best_res(best, sorts[i](env_dup(*env)));
+	while (g_sorts[++i] != NULL)
+		best = get_best_res(best, g_sorts[i](env_dup(*env)));
 	env_kill(*env);
 	*env = best;
 }

@@ -6,14 +6,14 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:20:20 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 13:51:56 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:32:32 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-t_env			*env_new()
+t_env			*env_new(void)
 {
 	t_env			*env;
 

@@ -6,12 +6,12 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 17:14:28 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 17:36:21 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SWAP_H
-# define SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "libft.h"
 
@@ -66,6 +66,7 @@ void			op_rrr(t_env *env);
 void			sort(t_env **env);
 
 t_env			*sort_simple(t_env *env);
+t_env			*sort_simpler(t_env *env);
 
 t_env			*sort_rot(t_env *env);
 t_env			*sort_rrot(t_env *env);
@@ -73,7 +74,7 @@ t_env			*sort_rrot(t_env *env);
 /*
 ** env.c
 */
-t_env			*env_new();
+t_env			*env_new(void);
 void			env_kill(t_env *env);
 t_env			*env_dup(t_env *env);
 
