@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:15:00 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 17:35:24 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 18:11:08 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 const t_sort	g_sorts[] = {
 	&sort_rot,
 	&sort_rrot,
+	&sort_a,
 	&sort_simple,
-	&sort_simpler,
+	&sort_reverse,
 	NULL
 };
 

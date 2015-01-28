@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 17:36:21 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 18:10:18 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,11 @@ void			op_rrr(t_env *env);
 */
 void			sort(t_env **env);
 
+t_env			*sort_a(t_env *env);
+
 t_env			*sort_simple(t_env *env);
-t_env			*sort_simpler(t_env *env);
+
+t_env			*sort_reverse(t_env *env);
 
 t_env			*sort_rot(t_env *env);
 t_env			*sort_rrot(t_env *env);
