@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:20:20 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:58:44 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 13:51:56 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_env			*env_new()
 
 void			env_kill(t_env *env)
 {
+	if (env == NULL)
+		return ;
 	free(env->a.data);
 	free(env->b.data);
 }

@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 16:21:11 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 21:46:17 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 10:54:16 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static t_bool	parse_flags(t_env *env, char *flags)
 			env->flags |= FLAG_V | FLAG_A;
 		else if (*flags == 'a')
 			env->flags |= FLAG_A;
+		else if (*flags == 'i')
+			env->flags |= FLAG_I | FLAG_A;
 		else if (*flags == 'c')
 			env->flags |= FLAG_C;
 		else

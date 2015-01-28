@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:50:10 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:56:21 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 10:43:17 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ const t_op		operators[] = {
 	{NULL, NULL}
 };
 
-void			call_op(t_env *env, const char *name)
+t_bool			call_op(t_env *env, const char *name)
 {
 	int				i;
 
@@ -38,7 +38,8 @@ void			call_op(t_env *env, const char *name)
 		{
 			ft_arrayadd(&(env->steps), operators[i].name);
 			operators[i].op(env);
-			break ;
+			return (true);
 		}
 	}
+	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 21:52:24 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 14:52:16 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define FLAG_V			(1)
 # define FLAG_A			(1 << 1)
 # define FLAG_C			(1 << 2)
+# define FLAG_I			(1 << 3)
 
 typedef struct	s_env
 {
@@ -42,7 +43,7 @@ typedef t_env	*(*t_sort)(t_env*);
 /*
 ** Operators
 */
-void			call_op(t_env *env, const char *name);
+t_bool			call_op(t_env *env, const char *name);
 
 void			op_sa(t_env *env);
 void			op_sb(t_env *env);
@@ -66,6 +67,9 @@ void			sort(t_env **env);
 
 t_env			*sort_simple(t_env *env);
 
+t_env			*sort_rot(t_env *env);
+t_env			*sort_rrot(t_env *env);
+
 /*
 ** env.c
 */
@@ -82,8 +86,19 @@ t_bool			parse_argv(t_env *env, char **argv);
 ** print.c
 */
 void			print_a(const char *prefix, t_env *env);
+void			print_ab(t_env *env);
 void			print_steps(t_env *env);
 void			print_verbose(t_env *env, t_env *sorted);
+
+/*
+** interactive
+*/
+void			interactive(t_env *env);
+
+/*
+** utils.c
+*/
+t_bool			is_sort(t_tab *tab);
 
 /*
 ** tab_utils.c

@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 15:00:50 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 00:05:45 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 10:52:41 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void			ft_tablast(t_tab *tab, void *dst)
 	ft_tabcpy(tab, dst, tab->length - 1);
 }
 
-void			ft_tabrot(t_tab *tab, int rot)
+static void		tabrot(t_tab *tab, int rot)
 {
 	const int		len = ft_abs(rot %= tab->length) * tab->size;
 	t_byte			tmp[len];
 
-	if (rot == 0 || tab->length == 0)
-		return ;
 	if (rot < 0)
 	{
 		ft_memcpy(tmp, tab->data, len);
@@ -49,4 +47,10 @@ void			ft_tabrot(t_tab *tab, int rot)
 		ft_memmove(tab->data + len, tab->data, tab->bytes - len);
 		ft_memcpy(tab->data, tmp, len);
 	}
+}
+
+void			ft_tabrot(t_tab *tab, int rot)
+{
+	if (rot != 0 && tab->length > 0)
+		tabrot(tab, rot);
 }

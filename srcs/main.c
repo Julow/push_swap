@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:44:25 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/27 21:41:44 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 15:20:37 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int				main(int argc, char **argv)
 	if (FLAG(FLAG_A))
 		print_a("Initial a: ", env);
 	tmp = (FLAG(FLAG_V)) ? env_dup(env) : NULL;
-	sort(&env);
+	if (FLAG(FLAG_I))
+		interactive(env);
+	else
+		sort(&env);
 	if (env == NULL)
 		return (env_kill(env), ft_putstr_fd(ERROR, 2), 1);
 	if (FLAG(FLAG_V))
