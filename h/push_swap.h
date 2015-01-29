@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 13:36:18 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 18:10:18 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/29 14:06:38 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define FLAG_A			(1 << 1)
 # define FLAG_C			(1 << 2)
 # define FLAG_I			(1 << 3)
+# define FLAG_P			(1 << 4)
 
 typedef struct	s_env
 {

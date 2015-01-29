@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:15:00 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/28 18:11:08 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/29 14:19:47 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,19 @@ static t_env	*get_best_res(t_env *e1, t_env *e2)
 void			sort(t_env **env)
 {
 	int				i;
+	t_env			*tmp;
 	t_env			*best;
 
 	best = NULL;
 	i = -1;
 	while (g_sorts[++i] != NULL)
-		best = get_best_res(best, g_sorts[i](env_dup(*env)));
+	{
+		tmp = g_sorts[i](env_dup(*env));
+		if (((*env)->flags & FLAG_P) == FLAG_P)
+			ft_printf(tmp ? "Algo %d :: %d ops\n" : "Algo %d :: FAIL\n",
+				i, tmp ? tmp->steps.length : 0);
+		best = get_best_res(best, tmp);
+	}
 	env_kill(*env);
 	*env = best;
 }
