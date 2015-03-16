@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   ft_tabcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/16 18:43:53 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:43:25 by jaguillo         ###   ########.fr       */
+/*   Created: 2015/03/16 19:50:04 by jaguillo          #+#    #+#             */
+/*   Updated: 2015/03/16 19:50:15 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void			print_stack(t_tab *tab)
+void			ft_tabcpy(t_tab *tab, void *dst, int index)
 {
-	int				i;
-
-	i = -1;
-	while (++i < tab->length)
-	{
-		if (i > 0)
-			PC(' ');
-		PI(*TG(int, *tab, i));
-	}
-	NL;
-}
-
-void			print_verbose(t_env *env)
-{
-	if (env->a.length > 0)
-		PS("a: "), print_stack(&(env->a));
-	if (env->b.length > 0)
-		PS("b: "), print_stack(&(env->b));
+	if (index >= tab->length || index < 0)
+		ft_bzero(dst, tab->size);
+	else
+		ft_memcpy(dst, tab->data + (tab->size * index), tab->size);
 }

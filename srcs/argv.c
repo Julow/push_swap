@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 18:01:59 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:06:51 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/16 19:44:20 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_bool			parse_argv(t_env *env, int argc, char **argv)
 
 	if ((i = parse_options(env, argc, argv)) < 0)
 		return (false);
+	ft_tabext(&(env->a), argc - i);
+	ft_tabext(&(env->b), argc - i);
 	while (i < argc)
 	{
 		if (!ft_sisint(argv[i]))
