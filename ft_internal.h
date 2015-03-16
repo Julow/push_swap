@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 19:49:39 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/16 17:56:51 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/09 16:36:57 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # define PUTNBR_BUFF	11
 # define PUTLONG_BUFF	21
+# define PUTBASE_BUFF	64
 
 /*
 ** =============
@@ -31,7 +32,7 @@
 */
 
 # ifndef GNL_BUFF
-#  define GNL_BUFF		BUFF_SIZE
+#  define GNL_BUFF		256
 # endif
 
 # define GNL_SUCCES		1
