@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 19:11:21 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:54:28 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/16 20:12:40 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,30 @@ t_opdef			g_ops[] = {
 
 void			call_op(t_env *env, t_op op)
 {
-	if (FLAG(env->flags, FLAG_PRTED))
-		PC(' ');
-	else if (!FLAG(env->flags, FLAG_V))
-		env->flags |= BIT(FLAG_PRTED);
-	PS(g_ops[op].name);
+	if (!FLAG(env->flags, FLAG_Q))
+	{
+		if (FLAG(env->flags, FLAG_PRTED))
+			PC(' ');
+		else if (!FLAG(env->flags, FLAG_V))
+			env->flags |= BIT(FLAG_PRTED);
+		PS(g_ops[op].name);
+		if (FLAG(env->flags, FLAG_V))
+			PC('\n');
+	}
 	g_ops[op].op(env);
 	if (FLAG(env->flags, FLAG_V))
-		PC('\n'), print_verbose(env);
+		print_verbose(env);
+}
+
+t_bool			call_op_str(t_env *env, const char *op)
+{
+	int				i;
+
+	i = -1;
+	while (g_ops[++i].name != NULL)
+	{
+		if (ft_strequ(g_ops[i].name, op))
+			return (call_op(env, i), true);
+	}
+	return (false);
 }

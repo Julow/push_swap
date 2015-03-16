@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:07 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:55:40 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/16 20:02:12 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int				main(int argc, char **argv)
 	env.flags = 0;
 	if (!parse_argv(&env, argc, argv))
 		return (ft_fdprintf(2, ERROR), 1);
-	if (FLAG(env.flags, FLAG_D))
-		PS("Initial a: "), print_stack(&(env.a));
-	sort(&env);
-	if (FLAG(env.flags, FLAG_D))
-		PS("Final a: "), print_stack(&(env.a));
+	if (FLAG(env.flags, FLAG_I))
+		interactive(&env);
+	else
+		sort(&env);
 	return (0);
 }

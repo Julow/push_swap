@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:54:39 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/16 20:11:37 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 **  -c		Color: enable colors on output
 **  -v		Verbose: 'a' and 'b' are print after each operation
 **  -d		Debug: print initial and final 'a' stack
-**  -i		Interactive: prompt the user to do operation
+**  -i		Interactive: prompt the user to do operation (enable -q)
+**  -q		Quiet: don't print operations
 ** ========================================================================== **
 */
 
@@ -47,6 +48,7 @@ t_bool			parse_argv(t_env *env, int argc, char **argv);
 # define FLAG_D		2
 # define FLAG_C		3
 # define FLAG_I		4
+# define FLAG_Q		5
 
 /*
 ** ========================================================================== **
@@ -75,6 +77,7 @@ typedef struct	s_opdef
 }				t_opdef;
 
 void			call_op(t_env *env, t_op op);
+t_bool			call_op_str(t_env *env, const char *op);
 
 void			op_sa(t_env *env);
 void			op_sb(t_env *env);
@@ -94,6 +97,8 @@ void			op_rrr(t_env *env);
 */
 
 void			sort(t_env *env);
+
+void			interactive(t_env *env);
 
 /*
 ** ========================================================================== **

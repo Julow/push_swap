@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   interactive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/16 19:07:19 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 20:03:15 by jaguillo         ###   ########.fr       */
+/*   Created: 2015/03/16 20:01:39 by jaguillo          #+#    #+#             */
+/*   Updated: 2015/03/16 20:13:45 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void			sort(t_env *env)
+void			interactive(t_env *env)
 {
+	t_buff			op;
+
 	if (FLAG(env->flags, FLAG_D))
 		PS("Initial a: "), print_stack(&(env->a));
-	/*
-	** TODO
-	*/
-	NL;
+	PS("OP> "), FL;
+	while (get_next_line(0, &op) > 0)
+	{
+		if (!call_op_str(env, op.data))
+			PS(ERROR);
+		PS("OP> "), FL;
+	}
 	if (FLAG(env->flags, FLAG_D))
 		PS("Final a: "), print_stack(&(env->a));
 }
