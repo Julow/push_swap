@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabcpy.c                                        :+:      :+:    :+:   */
+/*   ft_dstackmin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/16 19:50:04 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:50:15 by jaguillo         ###   ########.fr       */
+/*   Created: 2015/03/17 17:59:23 by jaguillo          #+#    #+#             */
+/*   Updated: 2015/03/17 19:19:38 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void			ft_tabcpy(t_tab *tab, void *dst, int index)
+int				ft_dstackmin(t_dstack *s)
 {
-	if (index >= tab->length || index < 0)
-		ft_bzero(dst, tab->size);
-	else
-		ft_memcpy(dst, tab->data + (tab->size * index), tab->size);
+	int				i;
+	int				min;
+
+	min = 0;
+	i = 0;
+	while (++i < s->length)
+		if (DSG(*s, i) < DSG(*s, min))
+			min = i;
+	return (min);
 }

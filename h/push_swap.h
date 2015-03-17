@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 20:11:37 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/17 19:14:05 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,42 @@
 ** -
 ** Options:
 **  -c		Color: enable colors on output
-**  -v		Verbose: 'a' and 'b' are print after each operation
+**  -v		Verbose: 'a' and 'b' are print after each operation (enable -d)
 **  -d		Debug: print initial and final 'a' stack
 **  -i		Interactive: prompt the user to do operation (enable -q)
 **  -q		Quiet: don't print operations
 ** ========================================================================== **
 */
 
+/*
+** ========================================================================== **
+** dstack
+*/
+
+# define DSG(s,i)		((s).data[(i)])
+# define DSGSTART(s,i)	((s).data[(s).length - (i + 1)])
+# define DSPUSH(s,d)	((s).data[((s).length++)] = (d))
+# define DSPOP(s)		((s).data[(--((s).length))])
+
+typedef struct	s_dstack
+{
+	int				*data;
+	int				length;
+}				t_dstack;
+
+void			ft_dstackinit(t_dstack *s, int len);
+int				ft_dstackchr(t_dstack *s, int chr);
+int				ft_dstackmin(t_dstack *s);
+
+/*
+** ========================================================================== **
+** env
+*/
+
 typedef struct	s_env
 {
-	t_tab			a;
-	t_tab			b;
+	t_dstack		a;
+	t_dstack		b;
 	int				flags;
 }				t_env;
 
@@ -109,7 +134,7 @@ void			interactive(t_env *env);
 
 # define FLAG_PRTED	31
 
-void			print_stack(t_tab *tab);
+void			print_dstack(t_dstack *s);
 void			print_verbose(t_env *env);
 
 /*
@@ -122,9 +147,6 @@ void			print_verbose(t_env *env);
 t_bool			ft_sisint(const char *s);
 
 int				ft_abs(int a);
-
-void			ft_tabcpy(t_tab *tab, void *dst, int index);
-void			ft_tabrot(t_tab *tab, int rot);
 
 /*
 ** ========================================================================== **

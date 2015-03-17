@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 18:01:59 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 20:12:01 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/17 19:27:52 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		parse_options(t_env *env, int argc, char **argv)
 			if (argv[i][j] == '-')
 				return (i + 1);
 			else if (argv[i][j] == 'v')
-				env->flags |= BIT(FLAG_V);
+				env->flags |= BIT(FLAG_V) | BIT(FLAG_D);
 			else if (argv[i][j] == 'd')
 				env->flags |= BIT(FLAG_D);
 			else if (argv[i][j] == 'c')
@@ -46,21 +46,22 @@ t_bool			parse_argv(t_env *env, int argc, char **argv)
 	int				i;
 	int				tmp;
 
+	env->flags = 0;
 	if ((i = parse_options(env, argc, argv)) < 0)
 		return (false);
-	ft_tabext(&(env->a), argc - i);
-	ft_tabext(&(env->b), argc - i);
+	ft_dstackinit(&(env->a), argc - i);
+	ft_dstackinit(&(env->b), argc - i);
 	while (i < argc)
 	{
 		if (!ft_sisint(argv[i]))
 			return (false);
 		tmp = ft_atoi(argv[i]);
-		if (ft_tabchr(&(env->a), &tmp) >= 0)
+		if (ft_dstackchr(&(env->a), tmp) >= 0)
 			return (false);
-		ft_tabadd(&(env->a), &tmp);
+		DSPUSH(env->a, tmp);
 		i++;
 	}
-	if (env->a.length <= 0)
+	if (env->a.length == 0)
 		return (false);
 	return (true);
 }

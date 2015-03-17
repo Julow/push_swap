@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 19:27:50 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:28:05 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/17 19:21:13 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,26 @@
 
 void			op_sa(t_env *env)
 {
+	int				d;
+
 	if (env->a.length >= 2)
-		ft_tabswap(&(env->a), env->a.length - 1, env->a.length - 2);
+	{
+		d = DSGSTART(env->a, 0);
+		DSGSTART(env->a, 0) = DSGSTART(env->a, 1);
+		DSGSTART(env->a, 1) = d;
+	}
 }
 
 void			op_sb(t_env *env)
 {
+	int				d;
+
 	if (env->b.length >= 2)
-		ft_tabswap(&(env->b), env->b.length - 1, env->b.length - 2);
+	{
+		d = DSGSTART(env->b, 0);
+		DSGSTART(env->b, 0) = DSGSTART(env->b, 1);
+		DSGSTART(env->b, 1) = d;
+	}
 }
 
 void			op_ss(t_env *env)

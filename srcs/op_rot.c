@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 19:28:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 19:28:46 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/17 19:22:36 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,26 @@
 
 void			op_ra(t_env *env)
 {
-	ft_tabrot(&(env->a), 1);
+	int				first;
+
+	if (env->a.length >= 2)
+	{
+		first = DSGSTART(env->a, 0);
+		ft_memmove(env->a.data + 1, env->a.data, S(int, env->a.length));
+		DSG(env->a, 0) = first;
+	}
 }
 
 void			op_rb(t_env *env)
 {
-	ft_tabrot(&(env->b), 1);
+	int				first;
+
+	if (env->b.length >= 2)
+	{
+		first = DSGSTART(env->b, 0);
+		ft_memmove(env->b.data + 1, env->b.data, S(int, env->b.length));
+		DSG(env->b, 0) = first;
+	}
 }
 
 void			op_rr(t_env *env)
