@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/17 19:14:05 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/17 19:39:05 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_dstack
 void			ft_dstackinit(t_dstack *s, int len);
 int				ft_dstackchr(t_dstack *s, int chr);
 int				ft_dstackmin(t_dstack *s);
+t_bool			ft_dstackissort(t_dstack *s);
 
 /*
 ** ========================================================================== **
