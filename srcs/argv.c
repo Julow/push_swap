@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 18:01:59 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/17 20:06:21 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 16:29:37 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ t_bool			parse_argv(t_env *env, int argc, char **argv)
 	env->flags = 0;
 	if ((i = parse_options(env, argc, argv)) < 0)
 		return (false);
-	ft_dstackinit(&(env->a), argc - i);
-	ft_dstackinit(&(env->b), argc - i);
+	env->stack_size = argc - i;
+	ft_dstackinit(&(env->a), env->stack_size);
+	ft_dstackinit(&(env->b), env->stack_size);
 	while (i < argc)
 	{
 		if (!ft_sisint(argv[i]))

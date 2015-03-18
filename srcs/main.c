@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:07 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/18 13:02:29 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 18:31:17 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@ int				main(int argc, char **argv)
 
 	if (!parse_argv(&env, argc, argv))
 		return (ft_fdprintf(2, ERROR), 1);
+	if (FLAG(env.flags, FLAG_D))
+		PS("Initial a: "), print_dstack(&(env.a));
 	if (FLAG(env.flags, FLAG_I))
 		interactive(&env);
-	else if (env.a.length > HARD_MAX || !sort_hard(&env))
+	else if (!ft_dstackissort(&(env.a))
+		&& (env.a.length > HARD_MAX || !sort_hard(&env)))
 		sort_simple(&env);
+	if (FLAG(env.flags, FLAG_D))
+		PS("Final a: "), print_dstack(&(env.a));
+	if (!ft_dstackissort(&(env.a)))
+		PS("NOT SORT !!!\n");
+	FL;
 	return (0);
 }

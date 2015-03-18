@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/18 13:12:18 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 18:55:08 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,11 @@ typedef struct	s_env
 	t_dstack		a;
 	t_dstack		b;
 	t_tab			ops;
+	int				stack_size;
 	int				flags;
 }				t_env;
+
+void			env_cpy(t_env *dst, t_env *env);
 
 /*
 ** ========================================================================== **
@@ -94,7 +97,8 @@ typedef enum	e_op
 	rr = 7,
 	rra = 8,
 	rrb = 9,
-	rrr = 10
+	rrr = 10,
+	nope = 255
 }				t_op;
 
 typedef struct	s_opdef
@@ -103,9 +107,7 @@ typedef struct	s_opdef
 	void			(*op)(t_env *env);
 }				t_opdef;
 
-void			call_ops_tab(t_env *env);
 void			call_op(t_env *env, t_op op);
-void			call_op_hard(t_env *env, t_op op);
 t_bool			call_op_str(t_env *env, const char *op);
 
 void			op_sa(t_env *env);
@@ -127,7 +129,7 @@ void			op_rrr(t_env *env);
 
 void			interactive(t_env *env);
 
-void			sort_simple(t_env *env);
+t_bool			sort_simple(t_env *env);
 
 /*
 ** ========================================================================== **
@@ -136,9 +138,25 @@ void			sort_simple(t_env *env);
 
 # define HARD_MAX		20
 
+# define FLAG_HARD		21
+
+typedef struct	s_sort
+{
+	t_bool			(*sort)(t_env*);
+}				t_sort;
+
+typedef struct	s_presort
+{
+	int				len;
+	char			*order;
+	char 			*ops;
+}				t_presort;
+
 t_bool			sort_hard(t_env *env);
 
+t_bool			sort_hard_2(t_env *env);
 t_bool			sort_hard_3(t_env *env);
+t_bool			sort_hard_pre(t_env *env);
 
 /*
 ** ========================================================================== **
