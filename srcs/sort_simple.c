@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 19:07:19 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/17 20:01:38 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 12:58:53 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void		rot_to(t_env *env, int to)
 		call_op(env, op);
 }
 
-void			sort(t_env *env)
+void			sort_simple(t_env *env)
 {
 	if (FLAG(env->flags, FLAG_D))
 		PS("Initial a: "), print_dstack(&(env->a));

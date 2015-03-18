@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 19:11:21 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/16 20:12:40 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 13:13:04 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ t_opdef			g_ops[] = {
 	{NULL, NULL}
 };
 
+void			call_ops_tab(t_env *env)
+{
+	int				i;
+
+	i = -1;
+	while (++i < env->ops.length)
+		call_op(env, *TG(t_op, env->ops, i));
+}
+
 void			call_op(t_env *env, t_op op)
 {
 	if (!FLAG(env->flags, FLAG_Q))
@@ -42,6 +51,12 @@ void			call_op(t_env *env, t_op op)
 	g_ops[op].op(env);
 	if (FLAG(env->flags, FLAG_V))
 		print_verbose(env);
+}
+
+void			call_op_hard(t_env *env, t_op op)
+{
+	ft_tabadd(&(env->ops), &op);
+	g_ops[op].op(env);
 }
 
 t_bool			call_op_str(t_env *env, const char *op)

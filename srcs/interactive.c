@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 20:01:39 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/17 17:32:26 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/18 12:52:36 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void			interactive(t_env *env)
 	PC('\n');
 	if (FLAG(env->flags, FLAG_D))
 		PS("Final a: "), print_dstack(&(env->a));
+	if (!ft_dstackissort(&(env->a)) || env->b.length > 0)
+		PS("Fail: Not sorted"), NL;
 }
