@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/18 18:55:08 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/19 15:48:12 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef enum	e_op
 	rra = 8,
 	rrb = 9,
 	rrr = 10,
-	nope = 255
+	nop = 127
 }				t_op;
 
 typedef struct	s_opdef
@@ -147,15 +147,12 @@ typedef struct	s_sort
 
 typedef struct	s_presort
 {
-	int				len;
 	char			*order;
 	char 			*ops;
 }				t_presort;
 
 t_bool			sort_hard(t_env *env);
 
-t_bool			sort_hard_2(t_env *env);
-t_bool			sort_hard_3(t_env *env);
 t_bool			sort_hard_pre(t_env *env);
 
 /*

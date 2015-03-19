@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 12:57:28 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/18 19:39:20 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/19 16:01:07 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 const t_sort	g_sorts[] = {
 	{&sort_simple},
-	{&sort_hard_2},
-	{&sort_hard_3},
 	{&sort_hard_pre},
 	{NULL}
 };
@@ -59,6 +57,8 @@ t_bool			sort_hard(t_env *env)
 	if (ok)
 		while (++i < best.length)
 			call_op(env, *TG(t_op, best, i));
+	if (FLAG(env->flags, FLAG_PRTED) && !FLAG(env->flags, FLAG_V))
+		NL;
 	free(best.data);
 	return (ok);
 }
