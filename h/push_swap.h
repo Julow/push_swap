@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/19 15:48:12 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/19 16:59:14 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef enum	e_op
 	nop = 127
 }				t_op;
 
+# define TLAST(t,b)		(((b).length > 0) ? TG((t), (b), (b).length - 1) : NULL)
+
 typedef struct	s_opdef
 {
 	char			*name;
@@ -152,8 +154,8 @@ typedef struct	s_presort
 }				t_presort;
 
 t_bool			sort_hard(t_env *env);
-
 t_bool			sort_hard_pre(t_env *env);
+t_bool			sort_hard_rec(t_env *env);
 
 /*
 ** ========================================================================== **

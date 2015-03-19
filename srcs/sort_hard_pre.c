@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 18:40:02 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/19 15:55:25 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/19 16:51:01 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_bool			sort_hard_pre(t_env *env)
 	char			order[env->a.length + 1];
 	int				i;
 
+	if (env->a.length > 3)
+		return (false);
 	ft_bzero(order, env->a.length + 1);
 	normalize(order, env->a.data, env->a.length);
 	i = -1;
