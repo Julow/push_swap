@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 18:01:59 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/18 16:29:37 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/20 14:47:07 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		parse_options(t_env *env, int argc, char **argv)
 		j = 0;
 		while (argv[i][++j] != '\0')
 			if (argv[i][j] == 'v')
-				env->flags |= BIT(FLAG_V) | BIT(FLAG_D);
+				env->flags |= BIT(FLAG_V);
 			else if (argv[i][j] == 'd')
 				env->flags |= BIT(FLAG_D);
 			else if (argv[i][j] == 'c')
@@ -33,7 +33,7 @@ static int		parse_options(t_env *env, int argc, char **argv)
 			else if (argv[i][j] == 'q')
 				env->flags |= BIT(FLAG_Q);
 			else
-				return (i + 1);
+				return (i);
 		i++;
 	}
 	return (i);
@@ -60,7 +60,5 @@ t_bool			parse_argv(t_env *env, int argc, char **argv)
 		DSPUSH(env->a, tmp);
 		i++;
 	}
-	if (env->a.length == 0)
-		return (false);
 	return (true);
 }

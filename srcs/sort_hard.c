@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 12:57:28 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/19 16:01:07 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/20 15:02:29 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 const t_sort	g_sorts[] = {
 	{&sort_simple},
 	{&sort_hard_pre},
+	{&sort_hard_rot},
+	{&sort_hard_rot2},
+	{&sort_hard_rrot},
 	{NULL}
 };
 
@@ -28,12 +31,18 @@ static t_bool	call_hard(t_env *env, t_tab *best, t_bool (*f)(t_env*))
 	cpy.flags |= BIT(FLAG_HARD);
 	ft_tabini(&(cpy.ops), sizeof(t_op));
 	ok = false;
-	if (f(&cpy) && cpy.ops.length < best->length)
+	if (f(&cpy))
 	{
-		ft_tabclr(best);
-		ft_tabaddn(best, cpy.ops.data, cpy.ops.length);
-		ok = true;
+		if ((best->length == -1 || cpy.ops.length < best->length))
+		{
+			ft_tabclr(best);
+			ft_tabaddn(best, cpy.ops.data, cpy.ops.length);
+			ok = true;
+		}
+		PS("Test::OK::"), PI(cpy.ops.length), NL;
 	}
+	else
+		PS("Test::KO::"), PI(cpy.ops.length), NL;
 	free(cpy.a.data);
 	free(cpy.b.data);
 	free(cpy.ops.data);
@@ -48,7 +57,7 @@ t_bool			sort_hard(t_env *env)
 
 	ok = false;
 	ft_tabini(&best, sizeof(t_op));
-	best.length = HARD_MAX * HARD_MAX;
+	best.length = -1;
 	i = -1;
 	while (g_sorts[++i].sort != NULL)
 		if (call_hard(env, &best, g_sorts[i].sort))
