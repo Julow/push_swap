@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:13:27 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/03/20 15:02:12 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/03/20 16:23:48 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,6 @@ t_bool			sort_simple(t_env *env);
 ** sort hard
 */
 
-# define HARD_MAX		20
-
 # define FLAG_HARD		21
 
 typedef struct	s_sort
@@ -145,17 +143,11 @@ typedef struct	s_sort
 	t_bool			(*sort)(t_env*);
 }				t_sort;
 
-typedef struct	s_presort
-{
-	char			*order;
-	char 			*ops;
-}				t_presort;
-
 t_bool			sort_hard(t_env *env);
-t_bool			sort_hard_rot(t_env *env);
-t_bool			sort_hard_rot2(t_env *env);
-t_bool			sort_hard_rrot(t_env *env);
-t_bool			sort_hard_pre(t_env *env);
+t_bool			sort_hard_first(t_env *env);
+t_bool			sort_hard_srot(t_env *env);
+t_bool			sort_hard_srot2(t_env *env);
+t_bool			sort_hard_srrot(t_env *env);
 
 /*
 ** ========================================================================== **
